@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Scaler</title>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			$('.img-container div img').each(function() {
+				let width = this.naturalWidth; 
+				let height = this.naturalHeight;
+				let flexValue = width / height;
+
+				console.log(this.src + '\n' + 'Width: ' + width + '\n' + 'Height: ' + height + '\n' + 'Flex value: ' + flexValue);
+
+				$(this).parent().css('flex', flexValue + ' ' + flexValue + ' 0px');
+			});
+		};
+	</script>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		.img-container {
+			border: 1px solid #f00;
+			overflow: hidden;
+			width: 1300px;
+			margin: 20px auto;
+			display: flex;
+			flex-direction: row;
+		}.img-container div {
+			border-radius: 15px;
+			overflow: hidden;
+		}
+		.img-container div:not(:last-child) {
+			margin-right: 20px;
+		}
+		.img-container div img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="img-container">
+		<div><img src="https://www.w3schools.com/w3images/wedding.jpg"></div>
+		<div><img src="https://www.w3schools.com/w3images/underwater.jpg"></div>
+		<div><img src="https://www.w3schools.com/w3images/ocean.jpg"></div>
+		<div><img src="https://www.w3schools.com/w3images/rocks.jpg"></div>
+	</div>
+</body>
+</html>
